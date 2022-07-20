@@ -86,5 +86,15 @@ def get_model(name, **kwargs):
         from torchvision.models.vgg import vgg16
         return vgg16(num_classes=num_features)
 
+    elif name == "squeezenet1_1":
+        num_features = kwargs.get("num_features", 512)
+        from torchvision.models.squeezenet import squeezenet1_1
+        return squeezenet1_1(num_classes=num_features)
+
+    elif name == "alexnet":
+        num_features = kwargs.get("num_features", 512)
+        from torchvision.models.alexnet import alexnet
+        return alexnet(num_classes=num_features)
+
     else:
         raise ValueError()
