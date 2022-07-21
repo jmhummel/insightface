@@ -197,4 +197,4 @@ class AmpEncoder(torch.nn.Module):
         return x
 
 def get_amp(num_classes):
-    return AmpEncoder(3, 128, num_classes, 112)
+    return AmpEncoder(3, 128, num_classes, 112, num_downscale=4, max_channel_multiplier=16)
