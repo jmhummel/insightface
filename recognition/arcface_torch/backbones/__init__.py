@@ -102,5 +102,10 @@ def get_model(name, **kwargs):
         from torchvision.models.alexnet import alexnet
         return alexnet(num_classes=num_features)
 
+    elif name == "ampencoder":
+        num_features = kwargs.get("num_features", 512)
+        from .ampencoder import AmpEncoder
+        return AmpEncoder(num_classes=num_features)
+
     else:
         raise ValueError()
