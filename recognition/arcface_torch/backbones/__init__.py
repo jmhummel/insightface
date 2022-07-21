@@ -97,10 +97,20 @@ def get_model(name, **kwargs):
         from torchvision.models.squeezenet import squeezenet1_1
         return squeezenet1_1(num_classes=num_features)
 
+    elif name == "squeezenet1_112":
+        num_features = kwargs.get("num_features", 512)
+        from .squeezenet import get_squeezenet_112
+        return get_squeezenet_112(num_features=num_features)
+
     elif name == "alexnet":
         num_features = kwargs.get("num_features", 512)
         from torchvision.models.alexnet import alexnet
         return alexnet(num_classes=num_features)
+
+    elif name == "alexnet_112":
+        num_features = kwargs.get("num_features", 512)
+        from .alexnet import get_alexnet_112
+        return get_alexnet_112(num_features=num_features)
 
     elif name == "ampencoder":
         num_features = kwargs.get("num_features", 512)
