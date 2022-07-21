@@ -104,8 +104,8 @@ def get_model(name, **kwargs):
 
     elif name == "ampencoder":
         num_features = kwargs.get("num_features", 512)
-        from .ampencoder import AmpEncoder
-        return AmpEncoder(num_classes=num_features)
+        from .ampencoder import get_amp
+        return get_amp(num_classes=num_features)
 
     else:
         raise ValueError()
