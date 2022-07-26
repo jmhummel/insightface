@@ -20,6 +20,7 @@ class SimpleEncoder(torch.nn.Module):
 
     def forward(self, x):
         x = self.features(x)
+        x = torch.nn.functional.avg_pool2d(x, 9)
         x = torch.flatten(x)
         x = self.classifier(x)
         return x
