@@ -11,7 +11,7 @@ class SimpleEncoder(torch.nn.Module):
             torch.nn.LeakyReLU(0.1),
             torch.nn.Conv2d(128, 256, 5, 2, padding=2),
             torch.nn.LeakyReLU(0.1),
-            torch.nn.Conv2d(256, 512, 2, padding=2),
+            torch.nn.Conv2d(256, 512, 5, 2, padding=2),
             torch.nn.LeakyReLU(0.1),
             torch.nn.Conv2d(512, 1024, 5, 2, padding=2),
             torch.nn.LeakyReLU(0.1),
@@ -20,7 +20,7 @@ class SimpleEncoder(torch.nn.Module):
 
     def forward(self, x):
         x = self.features(x)
-        x = torch.nn.functional.avg_pool2d(x, 9)
+        x = torch.nn.functional.avg_pool2d(x, 4)
         x = torch.flatten(x)
         x = self.classifier(x)
         return x
