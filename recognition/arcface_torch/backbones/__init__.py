@@ -121,5 +121,12 @@ def get_model(name, **kwargs):
         num_features = kwargs.get("num_features", 512)
         from .simpleencoder import SimpleEncoder
         return SimpleEncoder(num_classes=num_features)
+
+    elif name == "simpleencoder2":
+        num_features = kwargs.get("num_features", 512)
+        from .simpleencoder import SimpleEncoder2
+        return SimpleEncoder2(num_classes=num_features)
+
     else:
         raise ValueError()
+
