@@ -57,10 +57,10 @@ class SimpleEncoder2(torch.nn.Module):
             torch.nn.LeakyReLU(0.2),
             torch.nn.Conv2d(256, 512, 3, padding=1),
             torch.nn.LeakyReLU(0.2),
-            torch.nn.AvgPool2d(2),
+            torch.nn.AvgPool2d(2, padding=1),
             torch.nn.Conv2d(512, 512, 3, padding=1),
             torch.nn.LeakyReLU(0.2),
-            torch.nn.Conv2d(512, 512, 3),
+            torch.nn.Conv2d(512, 512, 4),
             torch.nn.LeakyReLU(0.2),
         )
         self.flatten = torch.nn.Flatten()
